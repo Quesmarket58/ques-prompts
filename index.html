@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Prompts Ebook | Ques Entrepreneur</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #030000;
+    --dark: #0a0000;
+    --red: #cc0000;
+    --red-bright: #e60000;
+    --red-dim: rgba(204,0,0,0.15);
+    --red-glow: rgba(204,0,0,0.4);
+    --gold: #c9922a;
+    --white: #ffffff;
+    --border: rgba(204,0,0,0.22);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Barlow', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  .page-bg {
+    position: fixed; inset: 0;
+    background: url('./mastering-prompts-cover-red.jpg') center center / cover no-repeat;
+    filter: brightness(0.13) saturate(0.8);
+    z-index: 0;
+  }
+
+  .page-overlay {
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse at 15% 25%, rgba(204,0,0,0.22) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 75%, rgba(150,0,0,0.12) 0%, transparent 55%),
+      linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(8,0,0,0.9) 100%);
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 0 20px 80px; }
+
+  .topbar {
+    width: calc(100% + 40px); margin: 0 -20px;
+    background: var(--red); text-align: center; padding: 11px 20px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; animation: slideDown 0.5s ease both;
+  }
+  .topbar a { color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); }
+
+  @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  .header { padding: 32px 0 8px; text-align: center; animation: fadeUp 0.6s ease 0.1s both; }
+
+  .brand-logo { display: inline-flex; align-items: center; gap: 14px; }
+
+  .logo-icon {
+    width: 48px; height: 48px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--red), #800000);
+    display: flex; align-items: center; justify-content: center; font-size: 24px;
+    box-shadow: 0 0 20px var(--red-glow); border: 1px solid rgba(204,0,0,0.4);
+  }
+
+  .logo-text { font-family: 'Orbitron', monospace; font-size: 18px; font-weight: 900; letter-spacing: 3px; color: var(--white); text-transform: uppercase; }
+  .logo-sub { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); display: block; margin-top: 2px; }
+
+  .powered { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.3); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
+  .powered span { color: rgba(220,60,60,0.9); font-weight: 700; }
+
+  .hero { max-width: 860px; width: 100%; text-align: center; padding: 52px 0 48px; animation: fadeUp 0.7s ease 0.2s both; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red-dim); border: 1px solid var(--border); color: #ff7777;
+    padding: 7px 18px; border-radius: 100px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 32px;
+  }
+  .badge-dot { width: 6px; height: 6px; background: var(--red-bright); border-radius: 50%; animation: pulse 2s infinite; box-shadow: 0 0 6px var(--red-glow); }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
+
+  h1 { font-family: 'Orbitron', monospace; font-size: clamp(28px, 5vw, 58px); font-weight: 900; line-height: 1.1; letter-spacing: 1px; color: var(--white); margin-bottom: 10px; text-shadow: 0 0 40px rgba(204,0,0,0.25); }
+  h1 .glow { color: var(--red-bright); text-shadow: 0 0 30px var(--red-glow), 0 0 60px rgba(204,0,0,0.2); }
+
+  .hero-sub { font-size: clamp(15px, 2vw, 18px); font-weight: 300; color: rgba(255,255,255,0.62); line-height: 1.65; max-width: 600px; margin: 20px auto 0; }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
+
+  .content-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 940px; width: 100%; align-items: start; animation: fadeUp 0.8s ease 0.3s both; }
+
+  .book-side { display: flex; flex-direction: column; gap: 24px; }
+
+  .book-cover-wrap {
+    position: relative; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(204,0,0,0.3), 0 30px 60px rgba(0,0,0,0.8), 0 0 60px rgba(204,0,0,0.1);
+  }
+
+  .book-cover-fallback {
+    width: 100%; aspect-ratio: 3/4;
+    background: linear-gradient(160deg, #1a0000, #2d0000, #0a0000);
+    border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 32px 24px; text-align: center; border: 1px solid rgba(204,0,0,0.3); position: relative; overflow: hidden;
+  }
+  .book-cover-fallback::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--red); }
+  .book-cover-fallback .book-icon { font-size: 64px; margin-bottom: 20px; }
+  .book-cover-fallback h3 { font-family: 'Orbitron', monospace; font-size: 17px; font-weight: 900; color: var(--white); line-height: 1.3; margin-bottom: 8px; }
+  .book-cover-fallback p { font-size: 13px; color: rgba(255,255,255,0.4); }
+  .book-cover-fallback .author { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; color: var(--gold); letter-spacing: 2px; margin-top: 16px; text-transform: uppercase; }
+  .book-cover-fallback .site { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 6px; }
+  .book-shine { position: absolute; top: 0; left: 0; right: 0; height: 40%; background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%); pointer-events: none; }
+
+  .what-inside { background: rgba(204,0,0,0.06); border: 1px solid rgba(204,0,0,0.18); border-radius: 16px; padding: 24px; }
+  .what-inside h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #ff7777; margin-bottom: 16px; }
+  .inside-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .inside-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  .inside-list li::before { content: '◆'; color: var(--red-bright); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+
+  .form-card {
+    background: rgba(8,0,0,0.92); border: 1px solid rgba(204,0,0,0.25); border-top: 3px solid var(--red);
+    border-radius: 20px; padding: 40px 36px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.7), 0 0 40px rgba(204,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.04);
+    backdrop-filter: blur(20px);
+  }
+  .form-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #ff7777; margin-bottom: 12px; }
+  .form-card h2 { font-family: 'Orbitron', monospace; font-size: 20px; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 10px; }
+  .form-card > p { font-size: 14px; color: rgba(255,255,255,0.42); margin-bottom: 28px; line-height: 1.6; }
+
+  .form-group { margin-bottom: 14px; }
+  .form-group input { width: 100%; padding: 15px 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: var(--white); font-family: 'Barlow', sans-serif; font-size: 15px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+  .form-group input::placeholder { color: rgba(255,255,255,0.2); }
+  .form-group input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(204,0,0,0.12); }
+
+  .btn-submit { width: 100%; padding: 17px; background: var(--red); color: var(--white); border: none; border-radius: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; margin-top: 4px; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; box-shadow: 0 8px 30px rgba(204,0,0,0.45); }
+  .btn-submit:hover { background: var(--red-bright); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(204,0,0,0.55); }
+
+  .privacy { text-align: center; font-size: 12px; color: rgba(255,255,255,0.22); margin-top: 14px; }
+
+  .success-msg { display: none; text-align: center; padding: 24px 0 8px; }
+  .success-msg h3 { font-family: 'Orbitron', monospace; font-size: 20px; color: #ff7777; margin-bottom: 10px; }
+  .success-msg p { font-size: 14px; color: rgba(255,255,255,0.52); line-height: 1.6; margin-bottom: 20px; }
+  .success-cta { display: inline-block; padding: 14px 32px; background: var(--red); color: white; border-radius: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.15s; box-shadow: 0 8px 28px rgba(204,0,0,0.4); }
+  .success-cta:hover { background: var(--red-bright); transform: translateY(-2px); }
+
+  .features-section { max-width: 940px; width: 100%; margin-top: 72px; animation: fadeUp 0.8s ease 0.4s both; }
+  .section-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #ff7777; text-align: center; margin-bottom: 12px; opacity: 0.8; }
+  .section-title { font-family: 'Orbitron', monospace; font-size: clamp(22px, 3.5vw, 36px); font-weight: 900; text-align: center; color: var(--white); margin-bottom: 8px; line-height: 1.2; }
+  .section-title span { color: var(--red-bright); }
+  .section-sub { text-align: center; font-size: 15px; color: rgba(255,255,255,0.42); max-width: 540px; margin: 0 auto 48px; line-height: 1.65; }
+
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(204,0,0,0.12); border-radius: 16px; padding: 28px 24px; transition: border-color 0.3s, background 0.3s, transform 0.3s; }
+  .feature-card:hover { border-color: rgba(204,0,0,0.4); background: rgba(204,0,0,0.05); transform: translateY(-4px); }
+  .feature-icon { font-size: 32px; margin-bottom: 16px; display: block; }
+  .feature-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .feature-card p { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.6; }
+
+  .deal-banner { max-width: 940px; width: 100%; margin-top: 56px; background: linear-gradient(135deg, rgba(204,0,0,0.14), rgba(100,0,0,0.08)); border: 1px solid rgba(204,0,0,0.28); border-top: 3px solid var(--red); border-radius: 20px; padding: 52px 40px; text-align: center; position: relative; overflow: hidden; animation: fadeUp 0.8s ease 0.5s both; }
+  .deal-banner::before { content: ''; position: absolute; top: -80px; right: -80px; width: 260px; height: 260px; border-radius: 50%; background: radial-gradient(circle, rgba(204,0,0,0.1), transparent 70%); pointer-events: none; }
+  .deal-tag { display: inline-block; background: var(--red); color: var(--white); font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; padding: 6px 16px; border-radius: 4px; margin-bottom: 20px; }
+  .deal-banner h2 { font-family: 'Orbitron', monospace; font-size: clamp(24px, 4vw, 42px); font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 12px; }
+  .deal-banner h2 span { color: var(--red-bright); }
+  .deal-banner > p { font-size: 16px; color: rgba(255,255,255,0.5); max-width: 500px; margin: 0 auto 36px; line-height: 1.65; }
+
+  .deal-price { display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 36px; }
+  .price-old { font-family: 'Orbitron', monospace; font-size: 26px; color: rgba(255,255,255,0.18); text-decoration: line-through; }
+  .price-new { font-family: 'Orbitron', monospace; font-size: 56px; font-weight: 900; color: var(--red-bright); text-shadow: 0 0 30px var(--red-glow); line-height: 1; }
+  .price-label { font-size: 13px; color: rgba(255,255,255,0.32); text-align: left; line-height: 1.5; }
+
+  .deal-btn { display: inline-block; padding: 18px 52px; background: var(--red); color: white; border-radius: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.25s ease; box-shadow: 0 8px 40px rgba(204,0,0,0.5); border: 2px solid var(--red); }
+  .deal-btn:hover { background: var(--red-bright); transform: translateY(-3px); box-shadow: 0 16px 50px rgba(204,0,0,0.6); }
+  .deal-note { font-size: 13px; color: rgba(255,255,255,0.28); margin-top: 18px; }
+
+  footer { max-width: 940px; width: 100%; text-align: center; padding: 44px 0 0; font-size: 12px; color: rgba(255,255,255,0.2); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 56px; }
+  footer a { color: #ff7777; text-decoration: none; opacity: 0.6; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 760px) {
+    .content-row { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .deal-price { flex-direction: column; gap: 8px; }
+    .deal-banner, .form-card { padding: 32px 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .topbar { font-size: 11px; padding: 10px 12px; letter-spacing: 1px; }
+
+    .header { padding: 20px 0 4px; }
+    .logo-text { font-size: 14px; letter-spacing: 2px; }
+    .logo-icon { width: 38px; height: 38px; font-size: 18px; }
+    .powered { font-size: 10px; }
+
+    .hero { padding: 32px 0 32px; }
+    .badge { font-size: 10px; padding: 6px 12px; margin-bottom: 20px; }
+    h1 { font-size: 26px !important; line-height: 1.15; }
+    .hero-sub { font-size: 14px; }
+
+    .form-card { padding: 24px 16px; }
+    .form-card h2 { font-size: 17px; }
+    .form-card > p { font-size: 13px; margin-bottom: 20px; }
+    .form-group input { padding: 13px 14px; font-size: 14px; }
+    .btn-submit { font-size: 15px; padding: 15px; }
+
+    .book-cover-fallback h3 { font-size: 15px; }
+    .what-inside { padding: 18px; }
+    .inside-list li { font-size: 13px; }
+
+    .features-section { margin-top: 48px; }
+    .section-title { font-size: 22px !important; }
+    .feature-card { padding: 20px 16px; }
+    .feature-card h3 { font-size: 15px; }
+
+    .deal-banner { padding: 28px 16px; margin-top: 40px; }
+    .deal-banner h2 { font-size: 22px !important; }
+    .deal-banner > p { font-size: 14px; }
+    .price-new { font-size: 44px; }
+    .price-old { font-size: 20px; }
+    .deal-btn { padding: 15px 28px; font-size: 16px; width: 100%; text-align: center; }
+
+    footer { font-size: 11px; padding: 28px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-bg"></div>
+<div class="page-overlay"></div>
+
+<div class="wrap">
+
+  <div class="topbar">
+    ⚡ LIMITED TIME — Galaxy AI Lifetime Deal Only $399 &nbsp;·&nbsp; <a href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank">Claim It Now →</a>
+  </div>
+
+  <div class="header">
+    <div class="brand-logo">
+      <div class="logo-icon">⚡</div>
+      <div>
+        <div class="logo-text">Ques Entrepreneur</div>
+        <span class="logo-sub">Motivationals & Ventures</span>
+      </div>
+    </div>
+    <div class="powered">Powered by &nbsp;<span>Galaxy AI</span>&nbsp; — 5,933+ AI Tools</div>
+  </div>
+
+  <div class="hero">
+    <div class="badge"><span class="badge-dot"></span> Free Ebook — Instant Download</div>
+    <h1>Master AI Prompts.<br><span class="glow">Dominate the Future.</span></h1>
+    <p class="hero-sub">Get the <strong>free ebook</strong> by Larry A. Quintana that teaches you to craft prompts that unlock the full power of <strong>Galaxy AI's 5,933+ tools</strong> — then access the platform that changes everything.</p>
+  </div>
+
+  <div class="content-row">
+    <div class="book-side">
+      <div class="book-cover-wrap">
+        <div class="book-cover-fallback">
+          <div class="book-icon">🤖</div>
+          <h3>Mastering the Art of Prompts</h3>
+          <p>A Comprehensive Guide for Creators & Developers</p>
+          <div class="author">Larry A. Quintana</div>
+          <div class="site">quintana-story-world.lovable.app</div>
+        </div>
+        <div class="book-shine"></div>
+      </div>
+      <div class="what-inside">
+        <h4>📖 What's Inside</h4>
+        <ul class="inside-list">
+          <li>Craft prompts that get AI to do exactly what you want</li>
+          <li>Descriptive, analytical, narrative & instructional prompt types</li>
+          <li>Advanced techniques for creators AND developers</li>
+          <li>Contextual, adaptive & interactive prompting strategies</li>
+          <li>Common pitfalls & how to test and iterate for best results</li>
+          <li>The future of AI prompting & emerging tech trends</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <p class="form-tag">Free Instant Access</p>
+      <h2>Get Your Free AI Prompts Ebook</h2>
+      <p>Enter your name & email — we'll send you the full guide plus your Galaxy AI access link, free.</p>
+      <form id="optinForm" onsubmit="handleSubmit(event)">
+        <div class="form-group"><input type="text" id="fname" placeholder="Your First Name" required autocomplete="given-name"></div>
+        <div class="form-group"><input type="email" id="email" placeholder="Your Best Email Address" required autocomplete="email"></div>
+        <button type="submit" class="btn-submit">🚀 Send Me the Free Ebook!</button>
+      </form>
+      <p class="privacy">🔒 Zero spam. Your info is safe. Unsubscribe anytime.</p>
+      <div class="success-msg" id="successMsg">
+        <h3>🎉 You're In!</h3>
+        <p>Check your inbox for the free ebook. While you wait — grab the Galaxy AI lifetime deal before it's gone!</p>
+        <a href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank" class="success-cta">🌌 Claim My Galaxy AI Access →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <p class="section-label">Why Galaxy AI</p>
+    <h2 class="section-title">One Platform. <span>5,933+ AI Tools.</span></h2>
+    <p class="section-sub">Galaxy AI gives you access to the world's largest collection of AI models — images, video, audio, writing, code and more. All in one place.</p>
+    <div class="features-grid">
+      <div class="feature-card"><span class="feature-icon">🖼️</span><h3>AI Image Generation</h3><p>Hundreds of image models including SDXL, FLUX and more — all from one dashboard.</p></div>
+      <div class="feature-card"><span class="feature-icon">🎬</span><h3>AI Video Creation</h3><p>Generate stunning videos from text prompts using cutting-edge video AI — no editing skills needed.</p></div>
+      <div class="feature-card"><span class="feature-icon">✍️</span><h3>AI Writing & Copy</h3><p>Blog posts, sales copy, scripts — dozens of specialized writing models for every need.</p></div>
+      <div class="feature-card"><span class="feature-icon">🎵</span><h3>AI Audio & Music</h3><p>Voiceovers, music tracks, sound effects — professional AI audio tools in your library.</p></div>
+      <div class="feature-card"><span class="feature-icon">💻</span><h3>AI Code Generation</h3><p>Build apps, scripts and automations faster with AI coding assistants that get you.</p></div>
+      <div class="feature-card"><span class="feature-icon">💰</span><h3>30% Affiliate Commission</h3><p>Share Galaxy AI and earn 30% on every paid user — recurring income from one link.</p></div>
+    </div>
+  </div>
+
+  <div class="deal-banner">
+    <div class="deal-tag">Limited Time Offer</div>
+    <h2>Pay Once.<br><span>Use Galaxy AI Forever.</span></h2>
+    <p>Right now Galaxy AI is offering a rare lifetime deal — one payment, lifetime access to 5,933+ AI tools. No monthly fees. Ever.</p>
+    <div class="deal-price">
+      <div class="price-old">$99/mo</div>
+      <div class="price-new">$399</div>
+      <div class="price-label">One-time<br>payment<br>forever</div>
+    </div>
+    <a href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank" class="deal-btn">🌌 Claim My Lifetime Access Now</a>
+    <p class="deal-note">Use promo code <strong style="color:#ff7777;">GRARF7S</strong> for 10M bonus credits at signup</p>
+  </div>
+
+  <footer>
+    <p>© 2026 Ques Marketing Agency LLC &nbsp;·&nbsp; Independent Galaxy AI Affiliate</p>
+    <p style="margin-top:8px;">Affiliate disclosure: We may earn a commission if you purchase through our link. Results may vary.</p>
+    <p style="margin-top:8px;"><a href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank">try.galaxy.ai/ques-marketing-agency-quintana</a></p>
+  </footer>
+
+</div>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('optinForm');
+    const msg = document.getElementById('successMsg');
+    form.style.opacity = '0.3';
+    form.style.pointerEvents = 'none';
+    msg.style.display = 'block';
+  }
+</script>
+</body>
+</html>
