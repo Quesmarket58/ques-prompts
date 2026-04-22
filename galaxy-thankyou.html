@@ -3,280 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You're In! | Mastering the Art of Prompts</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<title>You're In! | Ques Entrepreneur</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #030000;
-    --dark: #0a0000;
-    --red: #cc0000;
-    --red-bright: #e60000;
-    --red-dim: rgba(204,0,0,0.15);
-    --red-glow: rgba(204,0,0,0.4);
-    --gold: #c9922a;
-    --gold-light: #e8b84b;
-    --white: #ffffff;
-    --border: rgba(204,0,0,0.22);
-  }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
-    background: var(--black);
-    color: var(--white);
+    background: #030000;
+    color: #fff;
     font-family: 'Barlow', sans-serif;
-    overflow-x: hidden;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
   }
-
-  .page-bg {
-    position: fixed; inset: 0;
-    background: url('./mastering-prompts-cover-red.jpg') center center / cover no-repeat;
-    filter: brightness(0.13) saturate(0.8);
-    z-index: 0;
-  }
-
-  .page-overlay {
-    position: fixed; inset: 0;
-    background:
-      radial-gradient(ellipse at 50% 40%, rgba(204,0,0,0.2) 0%, transparent 60%),
-      linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(8,0,0,0.92) 100%);
-    z-index: 0;
-  }
-
-  .wrap {
-    position: relative; z-index: 2;
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 60px 24px;
+  .container {
+    max-width: 680px;
+    width: 100%;
     text-align: center;
   }
-
-  /* CHECK RING */
-  .check-ring {
-    width: 90px; height: 90px; border-radius: 50%;
-    border: 2px solid rgba(204,0,0,0.4);
-    background: rgba(204,0,0,0.1);
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 32px;
-    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-    font-size: 38px;
-    box-shadow: 0 0 30px rgba(204,0,0,0.2);
+  .logo {
+    font-family: 'Orbitron', sans-serif;
+    color: #cc0000;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    opacity: 0.8;
   }
-
-  @keyframes popIn {
-    from { transform: scale(0); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+  .checkmark {
+    font-size: 4rem;
+    margin-bottom: 20px;
   }
-
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--red-dim); border: 1px solid var(--border); color: #ff7777;
-    padding: 7px 18px; border-radius: 100px;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 28px;
-    animation: fadeUp 0.5s ease 0.2s both;
-  }
-
-  .badge-dot {
-    width: 6px; height: 6px; background: var(--red-bright); border-radius: 50%;
-    animation: pulse 2s infinite; box-shadow: 0 0 6px var(--red-glow);
-  }
-
-  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
-
   h1 {
-    font-family: 'Orbitron', monospace;
-    font-size: clamp(32px, 6vw, 60px);
-    font-weight: 900; line-height: 1.1;
-    color: var(--white); margin-bottom: 16px;
-    animation: fadeUp 0.6s ease 0.3s both;
-    text-shadow: 0 0 40px rgba(204,0,0,0.25);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    color: #cc0000;
+    margin-bottom: 15px;
+    line-height: 1.2;
   }
-
-  h1 span { color: var(--red-bright); }
-
   .subtitle {
-    font-size: 18px; font-weight: 300;
-    color: rgba(255,255,255,0.65); line-height: 1.65;
-    max-width: 520px; margin: 0 auto 48px;
-    animation: fadeUp 0.6s ease 0.4s both;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+    line-height: 1.6;
   }
-
-  .subtitle strong { color: var(--white); font-weight: 600; }
-
-  /* EMAIL BOX */
-  .email-box {
+  .card {
     background: rgba(204,0,0,0.08);
-    border: 1px solid rgba(204,0,0,0.25);
-    border-radius: 16px; padding: 24px 32px;
-    max-width: 480px; width: 100%;
-    margin: 0 auto 48px;
-    animation: fadeUp 0.6s ease 0.5s both;
+    border: 1px solid rgba(204,0,0,0.3);
+    border-radius: 12px;
+    padding: 35px 30px;
+    margin-bottom: 30px;
   }
-
-  .email-box p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
-  .email-box p strong { color: #ff7777; }
-
-  /* DIVIDER */
-  .divider {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; letter-spacing: 4px;
-    text-transform: uppercase; color: rgba(204,0,0,0.5);
-    margin-bottom: 32px;
-    animation: fadeUp 0.6s ease 0.55s both;
+  .card h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: #c9922a;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
   }
-
-  /* NEXT STEPS */
-  .next-steps {
-    display: flex; flex-direction: column; gap: 16px;
-    max-width: 500px; width: 100%;
-    margin: 0 auto 56px;
-    animation: fadeUp 0.6s ease 0.6s both;
+  .card p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
   }
-
-  .step-btn {
-    display: flex; align-items: center; gap: 18px;
-    background: rgba(8,0,0,0.92);
-    border: 1px solid rgba(204,0,0,0.25);
-    border-radius: 16px; padding: 20px 24px;
+  .btn-download {
+    display: inline-block;
+    background: #cc0000;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 8px;
     text-decoration: none;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    text-align: left;
+    letter-spacing: 1px;
+    transition: background 0.2s;
+    width: 100%;
+    max-width: 420px;
   }
-
-  .step-btn:hover {
-    transform: translateY(-3px);
-    border-color: rgba(204,0,0,0.5);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  .btn-download:hover { background: #e60000; }
+  .btn-galaxy {
+    display: inline-block;
+    background: transparent;
+    color: #cc0000;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 15px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: 2px solid #cc0000;
+    transition: all 0.2s;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 15px;
   }
-
-  .step-btn.primary {
-    background: var(--red);
-    border-color: var(--red);
+  .btn-galaxy:hover { background: #cc0000; color: #fff; }
+  .promo {
+    background: rgba(201,146,42,0.1);
+    border: 1px solid rgba(201,146,42,0.3);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: #c9922a;
   }
-
-  .step-btn.primary:hover { background: var(--red-bright); border-color: var(--red-bright); }
-
-  .step-icon { font-size: 28px; flex-shrink: 0; }
-
-  .step-text strong {
-    display: block; font-size: 15px; font-weight: 700;
-    color: var(--white); margin-bottom: 3px;
+  .promo strong { font-size: 1.1rem; letter-spacing: 2px; }
+  .footer {
+    margin-top: 40px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.3);
   }
-
-  .step-text span { font-size: 13px; color: rgba(255,255,255,0.5); }
-  .step-btn.primary .step-text span { color: rgba(255,255,255,0.75); }
-
-  .step-arrow { margin-left: auto; font-size: 18px; color: #ff7777; flex-shrink: 0; }
-  .step-btn.primary .step-arrow { color: var(--white); }
-
-  /* PROMO CODE BOX */
-  .promo-box {
-    background: rgba(201,146,42,0.08);
-    border: 1px solid rgba(201,146,42,0.25);
-    border-radius: 12px; padding: 16px 24px;
-    max-width: 500px; width: 100%;
-    margin: 0 auto 48px;
-    animation: fadeUp 0.6s ease 0.65s both;
-    text-align: center;
-  }
-
-  .promo-box p { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
-  .promo-code {
-    font-family: 'Orbitron', monospace;
-    font-size: 24px; font-weight: 900;
-    color: var(--gold-light);
-    letter-spacing: 4px;
-    text-shadow: 0 0 20px rgba(201,146,42,0.3);
-  }
-  .promo-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px; }
-
-  .footer-note {
-    font-size: 12px; color: rgba(255,255,255,0.2);
-    animation: fadeUp 0.6s ease 0.7s both;
-  }
-
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
   @media (max-width: 600px) {
-    .wrap { padding: 40px 16px; }
-    .check-ring { width: 70px; height: 70px; font-size: 30px; margin-bottom: 24px; }
-    h1 { font-size: 28px !important; }
-    .subtitle { font-size: 15px; margin-bottom: 32px; }
-    .email-box { padding: 16px; }
-    .next-steps { gap: 12px; }
-    .step-btn { padding: 14px 16px; gap: 12px; }
-    .step-icon { font-size: 22px; }
-    .step-text strong { font-size: 14px; }
-    .step-text span { font-size: 12px; }
-    .promo-box { padding: 14px 16px; }
-    .promo-code { font-size: 20px; }
+    h1 { font-size: 1.5rem; }
+    .card { padding: 25px 20px; }
+    .btn-download, .btn-galaxy { font-size: 0.85rem; padding: 15px 20px; }
   }
 </style>
 </head>
 <body>
+<div class="container">
+  <div class="logo">Ques Entrepreneur</div>
+  <div class="checkmark">✅</div>
+  <h1>You're In!</h1>
+  <p class="subtitle">Your free ebook is ready to download right now.<br>Click the button below to get instant access.</p>
 
-<div class="page-bg"></div>
-<div class="page-overlay"></div>
-
-<div class="wrap">
-
-  <div class="check-ring">✅</div>
-
-  <div class="badge"><span class="badge-dot"></span> Ebook Confirmed</div>
-
-  <h1>You're In! Check Your<br><span>Inbox Now</span></h1>
-
-  <p class="subtitle">
-    Your <strong>free copy of Mastering the Art of Prompts</strong> is on its way. Check your inbox — and your spam folder just in case. While you wait, take your next step below.
-  </p>
-
-  <div class="email-box">
-    <p>📬 <strong>Can't find the email?</strong> Check your spam or promotions folder and mark us as a trusted sender so you never miss an update from Ques Entrepreneur.</p>
-  </div>
-
-  <div class="divider">— Your Next Step —</div>
-
-  <div class="next-steps">
-    <a href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank" class="step-btn primary">
-      <span class="step-icon">🌌</span>
-      <div class="step-text">
-        <strong>Claim Your Galaxy AI Lifetime Access</strong>
-        <span>5,933+ AI tools — one payment, forever. $399 while the deal lasts.</span>
-      </div>
-      <span class="step-arrow">→</span>
-    </a>
-
-    <a href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank" class="step-btn">
-      <span class="step-icon">🖼️</span>
-      <div class="step-text">
-        <strong>Explore the AI Tools</strong>
-        <span>Images, video, audio, writing, code — all in one platform.</span>
-      </div>
-      <span class="step-arrow">→</span>
-    </a>
-
-    <a href="https://quesmarket58.github.io/ques-prompts/" target="_blank" class="step-btn">
-      <span class="step-icon">📖</span>
-      <div class="step-text">
-        <strong>Share This Free Ebook</strong>
-        <span>Know someone who needs this? Send them to the optin page.</span>
-      </div>
-      <span class="step-arrow">→</span>
+  <div class="card">
+    <h2>📘 Your Free Ebook</h2>
+    <p>Mastering the Art of Prompts — A Comprehensive Guide for Creators & Developers by Larry A. Quintana</p>
+    <a class="btn-download" href="https://drive.google.com/file/d/1aYR6N5nJOcyXUled_RfRKm5MfDPuJyBa/view?usp=sharing" target="_blank">
+      ⬇ Download Your Free Ebook Now
     </a>
   </div>
 
-  <div class="promo-box">
-    <p>Use this promo code at Galaxy AI signup for</p>
-    <div class="promo-code">GRARF7S</div>
-    <p class="promo-note">10 Million bonus credits — free when you sign up</p>
+  <div class="card">
+    <h2>🌌 Claim Your Galaxy AI Access</h2>
+    <p>Get lifetime access to 5,933+ AI tools for a one-time payment of $399. Use your exclusive promo code for 10 million bonus credits.</p>
+    <div class="promo">Use promo code: <strong>GRARF7S</strong> for 10M bonus credits</div>
+    <a class="btn-galaxy" href="https://try.galaxy.ai/ques-marketing-agency-quintana" target="_blank">
+      🚀 Claim My Galaxy AI Lifetime Access
+    </a>
   </div>
 
-  <p class="footer-note">© 2026 Ques Marketing Agency LLC — Independent Galaxy AI Affiliate. Results may vary.</p>
-
+  <div class="footer">
+    © 2026 Ques Marketing Agency LLC · Larry A. Quintana<br>
+    <a href="https://quintana-story-world.loveable.app/" style="color:rgba(255,255,255,0.3);">Visit My Blog & Resources</a>
+  </div>
 </div>
-
 </body>
 </html>
